@@ -1,0 +1,68 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "math memer plus export",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AlgebraIntent",
+          "slots": [],
+          "samples": [
+            "I want a joke about algebra",
+            "give me a joke about algebra",
+            "tell me an algebra joke",
+            "tell me a joke about algebra",
+            "I want an algebra joke",
+            "give me an algebra joke"
+          ]
+        },
+        {
+          "name": "GeometryIntent",
+          "slots": [],
+          "samples": [
+            "I want a joke about geometry",
+            "give me a joke about geometry",
+            "tell me an geometry joke",
+            "tell me a joke about geometry",
+            "I want an geometry joke",
+            "give me an geometry joke"
+          ]
+        }
+      ],
+      "types": []
+    }
+  },
+  "version": "2"
+}
