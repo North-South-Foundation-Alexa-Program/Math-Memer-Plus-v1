@@ -50,7 +50,7 @@ In the sidebar, click **JSON Editor**. You will be greeted with a small editor c
         "languageModel": {
             "invocationName": "math memer plus",
             "intents": [
-				# ...
+                # ...
                 # ...
                 {
                     "name": "AMAZON.FallbackIntent",
@@ -68,7 +68,7 @@ In the sidebar, click **JSON Editor**. You will be greeted with a small editor c
                         "give me an algebra joke"
                     ]
                 }
-				# Start here
+                # Start here
             ],
             "types": []
         }
