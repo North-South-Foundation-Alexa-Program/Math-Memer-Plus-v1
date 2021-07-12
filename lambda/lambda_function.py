@@ -45,7 +45,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Welcome, you can say Hello or Help. Which would you like to try?"
+        speak_output = "Welcome, I am a Math Memer Plus, do you want to hear an algebra or geometry joke?"
 
         return (
             handler_input.response_builder
