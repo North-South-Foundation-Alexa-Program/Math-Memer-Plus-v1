@@ -137,7 +137,7 @@ Finally, on the top of the page, click **Save Model** and **Build Model**.
 
 ### Calculus jokes
 
-As an exercise to you, you may add another intent for Calculus jokes; if you choose to do so, then you may use either the Intents window or the JSON editor.
+As an exercise to you, you may add another intent for Calculus jokes; if you choose to do so, then you may use either the Intents window or the JSON editor. Additionally, you will need to change `speak_output` in the `handle()` method of the `LaunchRequestHandler` class in the `lambda_function.py` file so that it provides calculus as a joke option.
 
 ## Add code
 
@@ -177,7 +177,30 @@ jokes = {
 
 Here, we've added four jokes for algebra and five for geometry. If you added additional intents so that you could ask for jokes from different math topics, be sure to include those jokes in the same manner in `jokes`.
 
-Next, for each intent that we added, we need a respective handler class. Under the `HelloWorldIntentHandler` class, add a new class, titled `AlgebraJokeHandler`. You must inherit from `(AbstractRequestHandler)`.
+Next, if the user just says "open math memer plus," this will invoke the Launch Request, so we need to modify `speak_output` in the `handle()` method of the `LaunchRequestHandler` class to say "Welcome, I am a Math Memer Plus, do you want to hear an algebra or geometry joke?".
+
+```python
+class LaunchRequestHandler(AbstractRequestHandler):
+    """Handler for Skill Launch."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+
+        return ask_utils.is_request_type("LaunchRequest")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        # MODIFY THE LINE BELOW
+        speak_output = "Welcome, I am a Math Memer Plus, do you want to hear an algebra or geometry joke?"
+
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
+                .response
+        )
+```
+
+After that, for each intent that we added, we need a respective handler class. Under the `HelloWorldIntentHandler` class, add a new class, titled `AlgebraJokeHandler`. You must inherit from `(AbstractRequestHandler)`.
 
 Then, add the `can_handle()` function with the same parameters and code as the `can_handle()` function in `HelloWorldIntentHandler`, replacing ``"HelloWorldIntent"` with `"AlgebraIntent"` as the argument for the `is_intent_name()` method.
 
@@ -300,9 +323,24 @@ jokes = {
     ]
 }
 
-# ...
-# ...
-# ...
+class LaunchRequestHandler(AbstractRequestHandler):
+    """Handler for Skill Launch."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+
+        return ask_utils.is_request_type("LaunchRequest")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        # MODIFY THE LINE BELOW
+        speak_output = "Welcome, I am a Math Memer Plus, do you want to hear an algebra or geometry joke?"
+
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
+                .response
+        )
 
 class AlgebraJokeHandler(AbstractRequestHandler):
     """Handler for Algebra Intent"""
